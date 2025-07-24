@@ -33,21 +33,21 @@ function App() {
   };
 
   return (
-    <div style={{ maxWidth: 700, margin: "auto", padding: "2rem", fontFamily: "Arial, sans-serif" }}>
+    <div id="root">
       {/* Header */}
-      <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
+      <header className="header">
         <h1>Himanshi Yenugupalli</h1>
         <a
           href="/Himanshi_Yenugupalli_Resume.pdf"
           download
-          style={{ textDecoration: "none", backgroundColor: "#007bff", color: "white", padding: "0.5rem 1rem", borderRadius: 4 }}
+          className="resume-btn"
         >
           Download Resume
         </a>
       </header>
 
       {/* About Me */}
-      <section style={{ marginBottom: "2rem" }}>
+      <section className="section">
         <h2>About Me</h2>
         <p>
           B.Sc. IT student graduating June 2025, passionate about web development and eager to contribute
@@ -56,7 +56,7 @@ function App() {
       </section>
 
       {/* Skills */}
-      <section style={{ marginBottom: "2rem" }}>
+      <section className="section">
         <h2>Skills</h2>
         <ul>
           <li>Technical Communication</li>
@@ -68,33 +68,33 @@ function App() {
       </section>
 
       {/* Projects */}
-      <section style={{ marginBottom: "2rem" }}>
+      <section className="section">
         <h2>Projects</h2>
 
-        <div style={{ marginBottom: "1rem" }}>
+        <div className="card">
           <h3>TravelChecklist_CodeCircuit</h3>
           <p>
             Built a travel packing checklist web app with category organization for the CodeCircuit Hackathon.
             Responsive frontend using HTML5, CSS3 (Flexbox, Grid, Animations), and Vanilla JavaScript.
             Deployed on Netlify.
           </p>
-          <a href="https://travelchecklistcodecircuit.netlify.app/" target="_blank" rel="noreferrer" style={{ color: "#007bff" }}>
+          <a href="https://travelchecklistcodecircuit.netlify.app/" target="_blank" rel="noreferrer">
             Live Site
           </a>
         </div>
 
-        <div style={{ marginBottom: "1rem" }}>
+        <div className="card">
           <h3>Bookshelf_CodeCircuit</h3>
           <p>
             Book list web app with genre filtering and favorites toggle for CodeCircuit Hackathon.
             Built with HTML5, CSS3, and JavaScript, hosted on Netlify.
           </p>
-          <a href="https://bookshelfbrowse.netlify.app/" target="_blank" rel="noreferrer" style={{ color: "#007bff" }}>
+          <a href="https://bookshelfbrowse.netlify.app/" target="_blank" rel="noreferrer">
             Live Site
           </a>
         </div>
 
-        <div>
+        <div className="card">
           <h3>Musical Instrument Learning Web App</h3>
           <p>
             Platform with a Rule-Based Chord Song Suggestion Chatbot.
@@ -104,7 +104,6 @@ function App() {
             href="https://github.com/himanshiyenugupalli/MusicalInstrumentLearningWebApp"
             target="_blank"
             rel="noreferrer"
-            style={{ color: "#007bff" }}
           >
             GitHub Repo
           </a>
@@ -112,9 +111,9 @@ function App() {
       </section>
 
       {/* Contact */}
-      <section style={{ marginBottom: "2rem" }}>
+      <section className="section">
         <h2>Contact Me</h2>
-        <form onSubmit={handleSubmit} style={{ maxWidth: 400 }}>
+        <form onSubmit={handleSubmit} className="contact-form">
           <label htmlFor="email">Email:</label><br />
           <input
             id="email"
@@ -122,7 +121,6 @@ function App() {
             required
             value={email}
             onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-            style={{ width: "100%", padding: "0.5rem", marginBottom: "1rem" }}
           />
 
           <label htmlFor="message">Message:</label><br />
@@ -131,24 +129,26 @@ function App() {
             required
             value={message}
             onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
-            style={{ width: "100%", height: 100, padding: "0.5rem", marginBottom: "1rem" }}
+            style={{ height: 100 }}
           />
 
-          <button type="submit" disabled={loading} style={{ padding: "0.5rem 1rem" }}>
+          <button type="submit" disabled={loading}>
             {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
-        {status && <p style={{ marginTop: "1rem" }}>{status}</p>}
+        {status && <p className="status-msg">{status}</p>}
       </section>
 
       {/* Social Media */}
-      <footer style={{ textAlign: "center", borderTop: "1px solid #ddd", paddingTop: "1rem" }}>
-        <a href="https://linkedin.com/in/himanshi-yenugupalli" target="_blank" rel="noreferrer" style={{ marginRight: 15 }}>
+      <footer className="footer">
+        <a href="https://linkedin.com/in/himanshi-yenugupalli" target="_blank" rel="noreferrer">
           LinkedIn
         </a>
-        <a href="https://github.com/himanshiyenugupalli" target="_blank" rel="noreferrer" style={{ marginRight: 15 }}>
+
+        <a href="https://github.com/himanshiyenugupalli" target="_blank" rel="noreferrer">
           GitHub
         </a>
+        
         <a href="mailto:himanshiyenugupalli@gmail.com">Email</a>
       </footer>
     </div>
